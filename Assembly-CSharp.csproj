@@ -64,8 +64,20 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CharacterController.cs" />
+    <Compile Include="Assets\Scripts\Destroyer.cs" />
+    <Compile Include="Assets\Scripts\DiagonalConstructBehavior.cs" />
+    <Compile Include="Assets\Scripts\DontDestroy.cs" />
+    <Compile Include="Assets\Scripts\EndScreen.cs" />
+    <Compile Include="Assets\Scripts\FallingSpike.cs" />
     <Compile Include="Assets\Scripts\HazardController.cs" />
+    <Compile Include="Assets\Scripts\InstructionsScreen.cs" />
+    <Compile Include="Assets\Scripts\NextLevel.cs" />
+    <Compile Include="Assets\Scripts\ObjectSelector.cs" />
     <Compile Include="Assets\Scripts\ObjectSpawner.cs" />
+    <Compile Include="Assets\Scripts\ObjectsController.cs" />
+    <Compile Include="Assets\Scripts\ProjectileController.cs" />
+    <Compile Include="Assets\Scripts\ShootingEnemy.cs" />
+    <Compile Include="Assets\Scripts\TitleScreen.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Jawad Usman/Documents/GitHub/Keep It Alive/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

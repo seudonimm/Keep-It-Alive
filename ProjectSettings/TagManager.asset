@@ -7,6 +7,10 @@ TagManager:
   - Ground
   - Object
   - Hazard
+  - ObjectStationary
+  - Projectile
+  - Door
+  - Destroyer
   layers:
   - Default
   - TransparentFX
@@ -16,10 +20,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Projectile
+  - Objects
+  - spawn
+  - Destroyer
   - 
   - 
   - 
