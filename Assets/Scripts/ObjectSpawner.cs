@@ -7,16 +7,17 @@ public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField] Vector3 worldMousePos;
 
+    //constructs
     [SerializeField] GameObject horizontalObj;
     [SerializeField] GameObject verticalObj;
     [SerializeField] GameObject diagLeftObj;
     [SerializeField] GameObject diagRightObj;
-
+    //construct sprites
     [SerializeField] Sprite horizontal;
     [SerializeField] Sprite vertical;
     [SerializeField] Sprite diagLeft;
     [SerializeField] Sprite diagRight;
-
+    //ui images 
     [SerializeField] Image one;
     [SerializeField] Image two;
     [SerializeField] Image three;
@@ -84,7 +85,7 @@ public class ObjectSpawner : MonoBehaviour
 
     }
 
-    void Selected()
+    void Selected() //switch statement state machine for ui and which object is selected
     {
         switch (selectState)
         {
@@ -175,7 +176,7 @@ public class ObjectSpawner : MonoBehaviour
 
 
 
-    void SpawnObject()
+    void SpawnObject() //spawn selected object
     {
         //left click
         Input.GetMouseButtonDown(0);
@@ -217,7 +218,7 @@ public class ObjectSpawner : MonoBehaviour
 
     }
 
-    void SpawnObjectSetter()
+    void SpawnObjectSetter()//select object to be spawned
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -239,40 +240,6 @@ public class ObjectSpawner : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("collided");
-        //if (collision.gameObject.CompareTag("Object") || collision.gameObject.CompareTag("ObjectStationary"))
-        //{
-        //    canDestroy = true;
-        //    otherObj = collision.gameObject;
-        //}
-        if (collision.IsTouchingLayers())
-        {
-            //canDestroy = true;
-            otherObj = collision.gameObject;
-
-        }
-
-    
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        //if (collision.gameObject.CompareTag("Object") || collision.gameObject.CompareTag("ObjectStationary"))
-        //{
-        //    canDestroy = false;
-        //    otherObj = null;
-        //}
-
-        if (!collision.IsTouchingLayers())
-        {
-            //canDestroy = false;
-            otherObj = null;
-
-        }
-
-    }
 }
 
 public enum SelectState

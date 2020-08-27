@@ -23,6 +23,7 @@ public class ShootingEnemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //shooting interval
         shootTimer--;
         if (shootTimer <= 0)
         {
@@ -33,7 +34,7 @@ public class ShootingEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Projectile"))
+        if (col.gameObject.CompareTag("Projectile")) //destroy enemy on contact with projectile
         {
             Destroy(gameObject);
         }

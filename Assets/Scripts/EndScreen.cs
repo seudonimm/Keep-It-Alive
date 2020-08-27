@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class EndScreen : MonoBehaviour
 {
-    [SerializeField] Image endCard1, endCard2, endCard3, endCard4, endCard5, endCard6, endCard7, toDestroy;
+    [SerializeField] Image endCard1, endCard2, endCard3, endCard4, endCard5, endCard6, endCard7;
     [SerializeField] List<Image> cards;
 
     [SerializeField] float cardTimer, cardTimerMax;
@@ -51,27 +51,20 @@ public class EndScreen : MonoBehaviour
             if (it < 7)
             {
                 cards[it].enabled = true;
-                //Destroy(cards[it]);
             }
             it++;
             cardTimer = cardTimerMax;
         }
+        cardTimer -= Time.deltaTime;
 
-        //if(it < 8)
-        //{
-            cardTimer -= Time.deltaTime;
-
-        //}
 
         if(it > 7)
         {
-            //Instantiate(credits, credits.transform.position, credits.transform.rotation);
             credits.enabled = true;
         }
 
         if (it > 8)
         {
-            //Instantiate(toTitleScreen, toTitleScreen.transform.position, toTitleScreen.transform.rotation);
             toTitleScreen.enabled = true;
         }
 

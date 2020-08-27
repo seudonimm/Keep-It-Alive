@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//used to destroy contructs
 public class ObjectsController : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -16,7 +17,7 @@ public class ObjectsController : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnCollisionEnter2D(Collision2D col) 
     {
 
         if (col.gameObject.CompareTag("Destroyer"))

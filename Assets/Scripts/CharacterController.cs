@@ -25,7 +25,7 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space)) 
         {
             move = false;
         }
@@ -34,7 +34,7 @@ public class CharacterController : MonoBehaviour
             move = true;
         }
 
-        if (charCol.gameObject.CompareTag("Ground"))
+        if (charCol.gameObject.CompareTag("Ground")) //puts slime right side when touching the ground
         {
             transform.rotation = new Quaternion(0, 0, 0,0);
         }
@@ -62,7 +62,7 @@ public class CharacterController : MonoBehaviour
             transform.rotation = new Quaternion(0, 0, 0, 0);
         }
 
-        squish.Play();
+        squish.Play(); //play sound on collision with ground
 
     }
 }

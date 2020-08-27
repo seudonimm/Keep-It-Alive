@@ -6,6 +6,7 @@ public static class ObjectSelector
 {
     public static int objSelected;
 
+    //gets and returns currently selected construct
     public static int ObjSelect
     {
         get{
