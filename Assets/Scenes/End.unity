@@ -983,7 +983,6 @@ MonoBehaviour:
   endCard5: {fileID: 2132105481}
   endCard6: {fileID: 472219953}
   endCard7: {fileID: 1165715128}
-  toDestroy: {fileID: 0}
   cards: []
   cardTimer: 0
   cardTimerMax: 1
@@ -1072,8 +1071,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Programming and Art by \nJawad Usman (@seudonimm)\n\nMusic\nBeauty Flow
-    by Kevin MacLeod\r\nLink: https://incompetech.filmmusic.io/song/5025-beauty-flow\r\nLicense:
+  m_Text: "Programming and Art by \nJawad Usman (seudonimm.itch.io)\n\nMusic\nBeauty
+    Flow by Kevin MacLeod\r\nLink: https://incompetech.filmmusic.io/song/5025-beauty-flow\r\nLicense:
     http://creativecommons.org/licenses/by/4.0/\r\n\r\nOuroboros by Kevin MacLeod\r\nLink:
     https://incompetech.filmmusic.io/song/4996-ouroboros\r\nLicense: http://creativecommons.org/licenses/by/4.0/\r\n\r\nCheery
     Monday by Kevin MacLeod\r\nLink: https://incompetech.filmmusic.io/song/3495-cheery-monday\r\nLicense:
