@@ -8,20 +8,11 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] Vector3 worldMousePos;
 
     //constructs
-    [SerializeField] GameObject horizontalObj;
-    [SerializeField] GameObject verticalObj;
-    [SerializeField] GameObject diagLeftObj;
-    [SerializeField] GameObject diagRightObj;
-    //construct sprites
-    [SerializeField] Sprite horizontal;
-    [SerializeField] Sprite vertical;
-    [SerializeField] Sprite diagLeft;
-    [SerializeField] Sprite diagRight;
-    //ui images 
-    [SerializeField] Image one;
-    [SerializeField] Image two;
-    [SerializeField] Image three;
-    [SerializeField] Image four;
+
+    [SerializeField] List<GameObject> constructs;
+    //[SerializeField] List<SpriteRenderer> constructSprites;
+    [SerializeField] List<Image> uiImages;
+
 
     [SerializeField] Color notActive;
 
@@ -39,16 +30,10 @@ public class ObjectSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ObjectSelector.objSelected = 1;
-
-        horizontal = horizontalObj.GetComponent<Sprite>();
-        vertical = verticalObj.GetComponent<Sprite>();
-        diagLeft = diagLeftObj.GetComponent<Sprite>();
-        diagRight = diagRightObj.GetComponent<Sprite>();
 
         notActive = new Color(1,1,1,.5f);
 
-        one.color = Color.white;
+        uiImages[0].color = Color.white;
 
         selectState = SelectState.One;
 
@@ -73,7 +58,6 @@ public class ObjectSpawner : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            //Destroy(otherObj);
 
             Destroyer.SetActive(true);
 
@@ -91,83 +75,47 @@ public class ObjectSpawner : MonoBehaviour
         {
             case SelectState.One:
 
-                one.color = Color.white;
+                uiImages[0].color = Color.white;
 
-                if (ObjectSelector.objSelected == 2)
+                if(ObjectSelector.ObjSelect != 0)
                 {
-                    one.color = notActive;
-                    selectState = SelectState.Two;
+                    uiImages[0].color = notActive;
+                    selectState = (SelectState)(ObjectSelector.ObjSelect);
                 }
-                if (ObjectSelector.objSelected == 3)
-                {
-                    one.color = notActive;
-                    selectState = SelectState.Three;
-                }
-                if (ObjectSelector.objSelected == 4)
-                {
-                    one.color = notActive;
-                    selectState = SelectState.Four;
-                }
+
                 break;
             case SelectState.Two:
 
-                two.color = Color.white;
+                uiImages[1].color = Color.white;
 
-                if (ObjectSelector.objSelected == 1)
+                if (ObjectSelector.ObjSelect != 1)
                 {
-                    two.color = notActive;
-                    selectState = SelectState.One;
+                    uiImages[1].color = notActive;
+                    selectState = (SelectState)(ObjectSelector.ObjSelect);
                 }
-                if (ObjectSelector.objSelected == 3)
-                {
-                    two.color = notActive;
-                    selectState = SelectState.Three;
-                }
-                if (ObjectSelector.objSelected == 4)
-                {
-                    two.color = notActive;
-                    selectState = SelectState.Four;
-                }
+
                 break;
             case SelectState.Three:
 
-                three.color = Color.white;
+                uiImages[2].color = Color.white;
 
-                if (ObjectSelector.objSelected == 1)
+                if (ObjectSelector.ObjSelect != 2)
                 {
-                    three.color = notActive;
-                    selectState = SelectState.One;
+                    uiImages[2].color = notActive;
+                    selectState = (SelectState)(ObjectSelector.ObjSelect);
                 }
-                if (ObjectSelector.objSelected == 2)
-                {
-                    three.color = notActive;
-                    selectState = SelectState.Two;
-                }
-                if (ObjectSelector.objSelected == 4)
-                {
-                    three.color = notActive;
-                    selectState = SelectState.Four;
-                }
+
                 break;
             case SelectState.Four:
 
-                four.color = Color.white;
+                uiImages[3].color = Color.white;
 
-                if (ObjectSelector.objSelected == 1)
+                if (ObjectSelector.ObjSelect != 3)
                 {
-                    four.color = notActive;
-                    selectState = SelectState.One;
+                    uiImages[3].color = notActive;
+                    selectState = (SelectState)(ObjectSelector.ObjSelect);
                 }
-                if (ObjectSelector.objSelected == 3)
-                {
-                    four.color = notActive;
-                    selectState = SelectState.Three;
-                }
-                if (ObjectSelector.objSelected == 2)
-                {
-                    four.color = notActive;
-                    selectState = SelectState.Two;
-                }
+
                 break;
 
 
@@ -181,40 +129,7 @@ public class ObjectSpawner : MonoBehaviour
         //left click
         Input.GetMouseButtonDown(0);
 
-        if(ObjectSelector.objSelected == 1)
-        {
-            Instantiate(horizontalObj, transform.position, transform.rotation);
-
-            this.GetComponent<SpriteRenderer>().sprite = horizontal;
-
-        }
-        if (ObjectSelector.objSelected == 2)
-        {
-            Instantiate(verticalObj, transform.position, transform.rotation);
-
-            this.GetComponent<SpriteRenderer>().sprite = vertical;
-
-
-        }
-
-
-        if (ObjectSelector.objSelected == 4)
-        {
-            Instantiate(diagLeftObj, transform.position, diagLeftObj.transform.rotation);
-
-            this.GetComponent<SpriteRenderer>().sprite = diagLeft;
-
-
-        }
-
-        if (ObjectSelector.objSelected == 3)
-        {
-            Instantiate(diagRightObj, transform.position, diagRightObj.transform.rotation);
-
-            this.GetComponent<SpriteRenderer>().sprite = diagRight;
-
-
-        }
+        Instantiate(constructs[ObjectSelector.ObjSelect], transform.position, constructs[ObjectSelector.ObjSelect].transform.rotation);
 
     }
 
@@ -222,21 +137,39 @@ public class ObjectSpawner : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ObjectSelector.objSelected = 1;
+            ObjectSelector.ObjSelect = 0;
+            Selected();
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ObjectSelector.objSelected = 2;
+            ObjectSelector.ObjSelect = 1;
+            Selected();
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            ObjectSelector.objSelected = 3;
+            ObjectSelector.ObjSelect = 2;
+            Selected();
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            ObjectSelector.objSelected = 4;
+            ObjectSelector.ObjSelect = 3;
+            Selected();
         }
 
+        if (Input.mouseScrollDelta.y > 0)
+        {
+            ObjectSelector.ObjSelect++;
+            ObjectSelector.ObjSelect = Mathf.Clamp(ObjectSelector.ObjSelect, 0, 3);
+            Selected();
+
+        }
+        if (Input.mouseScrollDelta.y < 0)
+        {
+            ObjectSelector.ObjSelect--;
+            ObjectSelector.ObjSelect = Mathf.Clamp(ObjectSelector.ObjSelect, 0, 3);
+            Selected();
+
+        }
 
     }
 

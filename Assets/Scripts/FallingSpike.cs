@@ -25,7 +25,7 @@ public class FallingSpike : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
 
-        if (col.gameObject.CompareTag("Player")) //drops spike when player enters it trigger
+        if (col.gameObject.CompareTag("Player")) //drops spike when player enters its trigger
         {
             Debug.Log("fall");
             spike.GetComponent<Rigidbody2D>().gravityScale = 1;

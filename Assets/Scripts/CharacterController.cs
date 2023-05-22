@@ -18,8 +18,7 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
         move = true;
-        rb = this.GetComponent<Rigidbody2D>();
-        charCol = this.GetComponent<Collider2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -34,11 +33,6 @@ public class CharacterController : MonoBehaviour
             move = true;
         }
 
-        if (charCol.gameObject.CompareTag("Ground")) //puts slime right side when touching the ground
-        {
-            transform.rotation = new Quaternion(0, 0, 0,0);
-        }
-        
     }
 
     private void FixedUpdate()

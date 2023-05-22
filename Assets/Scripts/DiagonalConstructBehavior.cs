@@ -21,7 +21,7 @@ public class DiagonalConstructBehavior : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Ground")) 
         {
-            rb.constraints = RigidbodyConstraints2D.FreezeAll; //stop object from after touching the ground
+            rb.constraints = RigidbodyConstraints2D.FreezeAll; //stop object from moving after touching the ground
 
 
         }
